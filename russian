@@ -1,0 +1,48 @@
+russian_peasant_mult(a,b):={
+  local a_list:=[a]; //sthlh akeraiou a (dhmiourgeitai apo ton algorithmo)
+  local b_list:=[b]; //sthlh akeraiou b (dhmiourgeitai apo ton algorithmo)
+  local sum_list:=[]; //edw tha kratountai ta stoixeia pou tha prostethoun
+  local j; //deikths 
+  local result:=0; //apotelesma tou pollaplasiasmou
+  
+//an o b einai perittos prosthese sthn lista tou athroismatos ton a
+  if(((b mod 2)%0)!=0){
+        sum_list:=append(sum_list,a);
+    }
+  
+  while(b!=1) {
+    a:=a*2;
+    a_list:=append(a_list,a);    //kathe akeraios ths a_listas einai to diplasio tou proigoumenou tou
+
+    b:=floor(b/2);
+    b_list:=append(b_list,b);   //kathe akeraios ths b_listas einai to floor phliko tou proigoumenou tou me to 2 
+    
+// an o akeraios einai perittos metaferoume ton antistoixo akeraio ths a sthlhs sthn sum_list(3h sthlh)
+    if(((b mod 2)%0)!=0){ 
+        sum_list:=append(sum_list,a);
+    }
+    else{ //an einai artios prosthese to mhden sthn sum_list
+      sum_list:=append(sum_list,0);
+    }
+  }
+
+//psothetoume tous akeraious ths triths sthlhs kai auto einai to apotelesma mas
+//kanoume print to apotelesma kai tis treis sthles tou algorithmou
+  print("  a\t\t"+"  b\t\t\t"+" sum");
+  for(j:=0;j<length(sum_list);j++) {
+     print(a_list[j]+"\t\t"+b_list[j]+"\t\t\t"+sum_list[j]);
+    result:=result+sum_list[j];
+  }
+  print("\t\t\t\t\t"+result);
+
+ //se periptwsh pou den fainetai h parapanw morfopoiisi kala bgalte ta sxolia stis parakatw treis grammes gia na
+ //deite ta stoixeia pou periexoun oi sthles
+  /* print(a_list);
+     print(b_list);
+     print(sum_list); */
+
+  return result;
+
+   
+}
+:;
