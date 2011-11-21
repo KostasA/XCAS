@@ -8,7 +8,7 @@ my_powermod(a,k,p):={
 
 //kanei enan elenxo an exei dothei prwtos arithmos sto p argument
 //an den exei dwthei ksanarwtaei ton xrhsth na tou dwsei to p orisma tis sunarthshs
-  while((p mod 2 == 0)) {
+  while(!isprime(p)) {
     print("You give a non-prime number...");
     input("p= ",p)
   }
