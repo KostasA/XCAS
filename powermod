@@ -1,0 +1,49 @@
+my_powermod(a,k,p):={
+  local l;
+  local len; //arithmos bit 
+  local j; //deiktis
+  local result:=a;
+
+//kanei enan elenxo an exei dothei prwtos arithmos sto p argument
+//an den exei dwthei ksanarwtaei ton xrhsth na tou dwsei to p orisma tis sunarthshs
+  while((p mod 2 == 0)) {
+    print("You give a non-prime number...");
+    input("p= ",p)
+  }
+
+  l:=revlist(convert(k,base,2)); //grafoume ton k sthn duadiki tou morfi
+  len:=length(l);
+//antikatestise kathe 1 me "SM" kai kathe 0 me "S"
+  for(j:=0;j<len;j++){
+    if(l[j]==1){
+      l[j]:="SM"
+    }
+    else {
+      l[j]:="S";
+    }
+  }
+  l[0]:=""; //Diagrafoume to "SM" pou einai sto aristero meros
+ 
+// koitame ola ta stoixeia tis listas, an vlepoume 'S' ipswnoume sto tetragwno 
+// enw an vlepoume 'M' pollaplasiazoume epi to a
+
+ for(j:=1;j<len;j++){
+    if(l[j]=="S"){
+      result:=result^2;
+      result:= result mod p;
+      print(result);
+    }
+    else{
+      if(l[j]=="SM"){
+        result:=result^2;
+        result:=result mod p;
+        print(result);
+        result:=result*a;
+        result:=result mod p;
+        print(result);  
+      }
+    }
+  }
+  
+}
+:;
