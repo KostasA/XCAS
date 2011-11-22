@@ -1,6 +1,7 @@
 //Anastasiou Konstantinos 793
 //Nizamis Aleksandros 838
 //Trigkas Aggelos 803
+// info http://textbin.com/555y4
 
 my_powermod(a,k,p):={ //epekatash:elenxoume an to orisma k einai arnhtiko i thetiko(to apotelesma upologizetai diaforetika se kathe periptwsh)
   local binary_list:=[]; //edw ginetai assign o k sthn duadikh tou apeikonisi se morfh listas
