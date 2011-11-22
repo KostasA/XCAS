@@ -1,10 +1,51 @@
+//Anastasiou Konstantinos 793
+//Nizamis Aleksandros 838
+//Trigkas Aggelos 803
 russian_peasant_mult(a,b):={
   local a_list:=[a]; //sthlh akeraiou a (dhmiourgeitai apo ton algorithmo)
   local b_list:=[b]; //sthlh akeraiou b (dhmiourgeitai apo ton algorithmo)
   local sum_list:=[]; //edw tha kratountai ta stoixeia pou tha prostethoun
   local j; //deikths 
   local result:=0; //apotelesma tou pollaplasiasmou
-  
+  local result_sign; //ginetai assign to prosimo , exw 4 priptwseis
+//a>0,b>0 result_sign:=1
+//a>0,b<0 result_sign=-1
+//a<0,b<0 result_sign=1
+//a<0,b>0 result_sign=-1
+ 
+//gia na efarmosthei o rwsikos algorithmos prepei to orisma b na mhn einai mhden 
+//ara ama einai mhden ksanazhtaw apo ton xrhsth na mou dwsei allon integer
+while(b==0) {
+  print("b cannot be zero");
+  print("Please give another integer for b argument...");
+  input("b=",b)
+  b_list[0]:=b;
+}
+
+
+ 
+if((a>0) && (b>0)) {//a>0,b>0 result_sign:=1
+  result_sign:=1;
+}
+else {
+  if((a>0) && (b<0)) {//a>0,b<0 result_sign=-1
+    result_sign:=-1;
+    b:=abs(b);
+  }
+  else {
+    if((a<0) && (b<0)) {//a<0,b<0 result_sign=1
+      result_sign:=1;
+      a:=abs(a);
+      b:=abs(b);
+    }
+    else{
+      if((a<0) && (b>0)) {//a<0,b>0 result_sign=-1
+        result_sign:=-1;
+        a:=abs(b);  
+      }
+    }
+  }
+}
 //an o b einai perittos prosthese sthn lista tou athroismatos ton a
   if(((b mod 2)%0)!=0){
         sum_list:=append(sum_list,a);
@@ -33,7 +74,7 @@ russian_peasant_mult(a,b):={
      print(a_list[j]+"\t\t"+b_list[j]+"\t\t\t"+sum_list[j]);
     result:=result+sum_list[j];
   }
-  print("\t\t\t\t\t"+result);
+  print("\t\t\t\t\t"+result*result_sign);
 
  //se periptwsh pou den fainetai h parapanw morfopoiisi kala bgalte ta sxolia stis parakatw treis grammes gia na
  //deite ta stoixeia pou periexoun oi sthles
@@ -41,7 +82,7 @@ russian_peasant_mult(a,b):={
      print(b_list);
      print(sum_list); */
 
-  return result;
+  return result*result_sign; //epistrefw to result pollaplasiasmeno me to proshmo se periptwsh pou dothikan arnhtikoi arithmoi apo ton xrhsth
 
    
 }
