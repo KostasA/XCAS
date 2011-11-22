@@ -1,6 +1,7 @@
 //Anastasiou Konstantinos 793
 //Nizamis Aleksandros 838
 //Trigkas Aggelos 803
+//info http://textbin.com/47t81
 russian_peasant_mult(a,b):={
   local a_list:=[a]; //sthlh akeraiou a (dhmiourgeitai apo ton algorithmo)
   local b_list:=[b]; //sthlh akeraiou b (dhmiourgeitai apo ton algorithmo)
