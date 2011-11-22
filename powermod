@@ -1,11 +1,15 @@
-//okkk mporw na ta epeksergastw!
+//Anastasiou Konstantinos 793
+//Nizamis Aleksandros 838
+//Trigkas Aggelos 803
 
-my_powermod(a,k,p):={
-  local l;
+my_powermod(a,k,p):={ //epekatash:elenxoume an to orisma k einai arnhtiko i thetiko(to apotelesma upologizetai diaforetika se kathe periptwsh)
+  local binary_list:=[]; //edw ginetai assign o k sthn duadikh tou apeikonisi se morfh listas
   local len; //arithmos bit 
   local j; //deiktis
-  local result:=a;
+  local positive_result:=a; //edw ginetai assign to apotelesma pou epistrefetai an exei dwthei k thetikos
+  local negative_result; //edw ginetai assign to apotelesma pou epistrefetai an exei dwthei k arnhtikos
 
+if(k>=0) {
 //kanei enan elenxo an exei dothei prwtos arithmos sto p argument
 //an den exei dwthei ksanarwtaei ton xrhsth na tou dwsei to p orisma tis sunarthshs
   while(!isprime(p)) {
@@ -13,39 +17,44 @@ my_powermod(a,k,p):={
     input("p= ",p)
   }
 
-  l:=revlist(convert(k,base,2)); //grafoume ton k sthn duadiki tou morfi
-  len:=length(l);
+  binary_list:=revlist(convert(k,base,2)); //grafoume ton k sthn duadiki tou morfi
+  len:=length(binary_list);
 //antikatestise kathe 1 me "SM" kai kathe 0 me "S"
   for(j:=0;j<len;j++){
-    if(l[j]==1){
-      l[j]:="SM"
+    if(binary_list[j]==1){
+      binary_list[j]:="SM"
     }
     else {
-      l[j]:="S";
+      binary_list[j]:="S";
     }
   }
-  l[0]:=""; //Diagrafoume to "SM" pou einai sto aristero meros
+  binary_list[0]:=""; //Diagrafoume to "SM" pou einai sto aristero meros
  
 // koitame ola ta stoixeia tis listas, an vlepoume 'S' ipswnoume sto tetragwno 
 // enw an vlepoume 'M' pollaplasiazoume epi to a
 
  for(j:=1;j<len;j++){
-    if(l[j]=="S"){
-      result:=result^2;
-      result:= result mod p;
-      print(result);
+    if(binary_list[j]=="S"){
+      positive_result:=positive_result^2;
+      positive_result:=positive_result mod p;
     }
     else{
-      if(l[j]=="SM"){
-        result:=result^2;
-        result:=result mod p;
-        print(result);
-        result:=result*a;
-        result:=result mod p;
-        print(result);  
+      if(binary_list[j]=="SM"){
+        positive_result:=positive_result^2;
+        positive_result:=positive_result mod p;
+        positive_result:=positive_result*a;
+        positive_result:=positive_result mod p;  
       }
     }
   }
-  
+  return positive_result;
+ }
+else { //an to k einai arnhtiko ektelese 
+  k:=-k;  //kane to k thetiko, kai katevase to apotelesma  tou my_powermod ston paronomasth
+//einai dhladh san thn apli praksh 3^(-1)==1/3
+  negative_result:=1/my_powermod(a,k,p);  //ara sthn metavliti negative_result tha gyrnaei to apotelesma 1/my_powermod(a,k,p)
+ //to xcas vriskei automata ton pollaplasiastiko antistrofo kai den xreiazetai na xrhsimopoiisoume ton igcdex(p,a)
+  return negative_result;
+}
 }
 :;
